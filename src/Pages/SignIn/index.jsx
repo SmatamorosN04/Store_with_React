@@ -12,8 +12,7 @@ function SignIn(){
        const verifyUser = userContext.registeredUsers.filter
        (registeredUser =>
        registeredUser.email === email)
-       const isEmailRegistered = userContext.registeredUsers === []? false:
-           verifyUser.length > 0
+       const isEmailRegistered = verifyUser.length > 0
         if(!isEmailRegistered){
             event.preventDefault();
             window.alert('wrong Password');

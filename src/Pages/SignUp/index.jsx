@@ -11,8 +11,7 @@ function SignUp() {
         const password = document.getElementById('password').value;
         const verifyUser = userContext.registeredUsers.filter(registeredUser =>
         registeredUser.email === email)
-        const isEmailRegistered = userContext.registeredUsers === []? false:
-            verifyUser.length > 0
+        const isEmailRegistered = verifyUser.length > 0
         if(isEmailRegistered){
             event.preventDefault();
             window.alert('This Email is already registered, use Another address');
