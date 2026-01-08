@@ -1,4 +1,4 @@
-import Home from '../Home'
+import Home from '../Home/Index.jsx'
 import MyAccount from "../MyAccount/index.jsx";
 import MyOrder from "../MyOrder/index.jsx";
 import MyOrders from "../MyOrders/index.jsx";

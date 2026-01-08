@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import Layout from '../../Components/Layout'
-import Card from '../../Components/Card'
-import ProductDetail from '../../Components/ProductDetail'
-import { ShoppingCartContext } from '../../Context'
+import Layout from '../../Components/Layout/index.jsx'
+import Card from '../../Components/Card/index.jsx'
+import ProductDetail from '../../Components/ProductDetail/index.jsx'
+import { ShoppingCartContext } from '../../Context/index.jsx'
 
 function Home() {
     const context = useContext(ShoppingCartContext)
