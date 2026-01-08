@@ -4,7 +4,7 @@ import {useContext} from "react";
 import { ShoppingCartIcon} from '@heroicons/react/24/solid'
 
 const NavBar = () => {
-    const context = useContext(ShoppingCartContext);
+    const {cartProducts, setSearchByCategory} = useContext(ShoppingCartContext);
     const userContext = useContext(UserContext)
     const activeStyle= "underline underline-offset-5 font-bold";
 
@@ -19,6 +19,7 @@ const NavBar = () => {
                 </li>
                 <li>
                     <NavLink to='/'
+                      onClick={() => setSearchByCategory(null)}
                      className={({ isActive}) =>
                      isActive ? activeStyle: undefined}>
                         All
@@ -26,6 +27,7 @@ const NavBar = () => {
                 </li>
                 <li>
                     <NavLink to='/clothes'
+                     onClick={() => setSearchByCategory('Clothes')}
                     className={({ isActive}) =>
                      isActive ? activeStyle: undefined}>
                         Clothes
@@ -33,6 +35,7 @@ const NavBar = () => {
                 </li>
                     <li>
                         <NavLink to='/electronics'
+                          onClick={() => setSearchByCategory('electronics')}
                          className={({ isActive}) =>
                          isActive ? activeStyle: undefined}>
                             Electronics
@@ -40,6 +43,7 @@ const NavBar = () => {
                     </li>
                 <li>
                     <NavLink to='/furnitures'
+                      onClick={() => setSearchByCategory('furniture')}
                      className={({ isActive}) =>
                      isActive ? activeStyle: undefined}>
                         Furnitures
@@ -47,6 +51,7 @@ const NavBar = () => {
                 </li>
                 <li>
                     <NavLink to='/toys'
+                     onClick={() => setSearchByCategory('toys')}
                      className={({ isActive}) =>
                      isActive ? activeStyle: undefined}>
                         Toys
@@ -54,6 +59,7 @@ const NavBar = () => {
                 </li>
                 <li>
                     <NavLink to='/others'
+                     onClick={() => setSearchByCategory('*')}
                      className={({ isActive}) =>
                      isActive ? activeStyle: undefined}>
                         Others
@@ -78,7 +84,7 @@ const NavBar = () => {
                         </li>
                         <li className='flex items-center'>
                             <ShoppingCartIcon className='h-6 w-6 text-black'></ShoppingCartIcon>
-                            <div>{context.cartProducts.length}</div>
+                            <div>{cartProducts.length}</div>
                         </li>
                     </ul>
                 ) : (

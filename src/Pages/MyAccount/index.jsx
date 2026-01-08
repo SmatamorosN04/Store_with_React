@@ -8,6 +8,8 @@ function MyAccount(){
     const logOut = () => {
        userContext.setUser(null)
         userContext.setIsLoggedin(false)
+        localStorage.setItem('user', JSON.stringify(null))
+        localStorage.setItem('isLoggedIn', 'false')
     }
     return(
         <Layout>

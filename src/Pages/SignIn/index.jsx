@@ -5,6 +5,7 @@ import {UserContext} from "../../Context/index.jsx";
 
 function SignIn(){
    const userContext = useContext(UserContext)
+
     const login = (event) => {
        const email = document.getElementById('email').value
         const password = document.getElementById('password').value;
@@ -20,7 +21,9 @@ function SignIn(){
         }
         userContext.setUser(verifyUser[0])
         userContext.setIsLoggedin(true);
-    }
+        localStorage.setItem('user', JSON.stringify(verifyUser[0]))
+        localStorage.setItem('isLoggedIn', 'true')
+   }
 
 
     return(

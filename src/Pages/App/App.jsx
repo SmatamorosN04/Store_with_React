@@ -36,6 +36,16 @@ const AppRoutes = () => {
 }
 
 const App = () => {
+const userContext = useContext(UserContext)
+  const userLocalStorage = localStorage.getItem('user')
+  const isLoggedInLocalStorage = localStorage.getItem('isLoggedIn')
+  const registeredUsers = localStorage.getItem('registeredUsers')
+  if(!userLocalStorage && !isLoggedInLocalStorage &&!registeredUsers){
+    localStorage.setItem('user', 'null')
+    localStorage.setItem('isLoggedin', 'false')
+    localStorage.setItem('registeredUsers','[]')
+  }
+
 
   return (
 <ShoppingCartProvider>

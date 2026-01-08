@@ -16,7 +16,7 @@ function Home() {
             )
         } else {
             return (
-                <div>We don't have anything :(</div>
+                <div>Is no Charging pipipipi</div>
             )
         }
     }

@@ -41,6 +41,9 @@ function SignUp() {
         userContext.setUser(newUser);
         userContext.setIsLoggedin(true);
         userContext.setRegisteredUsers([...userContext.registeredUsers, newUser])
+        localStorage.setItem('user', JSON.stringify(newUser))
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('registeredUsers', JSON.stringify([...userContext.registeredUsers, newUser]))
     }
     return(
         <Layout>
