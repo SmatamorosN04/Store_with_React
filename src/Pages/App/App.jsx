@@ -9,22 +9,26 @@ import NavBar from "../../components/navbar/index.jsx";
 import CheckoutSideMenu from '../../components/CheckoutSideMenu/index.jsx'
 import './App.css'
 import {BrowserRouter, useRoutes} from 'react-router-dom';
-import {ShoppingCartProvider, UserProvider} from "../../Context/index.jsx";
+import {ShoppingCartProvider, UserContext, UserProvider} from "../../Context/index.jsx";
+import {useContext} from "react";
 
 const AppRoutes = () => {
+ const userContext = useContext(UserContext)
+  const isEnabled = userContext.isLoggedIn && userContext.user;
+
   return useRoutes([
-    { path: '/', element: <Home /> },
-    { path: '/clothes', element: <Home /> },
-    { path: '/electronics', element: <Home /> },
-    { path: '/furnitures', element: <Home /> },
-    { path: '/toys', element: <Home /> },
-    { path: '/other', element: <Home /> },
-    { path: '/my-account', element: <MyAccount /> },
-    { path: '/sign-up', element: < SignUp />},
-    { path: '/my-order', element: <MyOrder /> },
-    { path: '/my-orders', element: <MyOrders /> },
-    { path: '/my-orders/last', element: <MyOrder /> },
-    { path: '/my-orders/:id', element: <MyOrder /> },
+    { path: '/', element: isEnabled? <Home /> : <SignIn/> },
+    { path: '/clothes', element: isEnabled? <Home />: <SignIn/> },
+    { path: '/electronics', element:isEnabled? <Home />: <SignIn/> },
+    { path: '/furnitures', element: isEnabled?  <Home />: <SignIn/> },
+    { path: '/toys', element: isEnabled? <Home />: <SignIn/> },
+    { path: '/other', element:isEnabled? <Home />: <SignIn/> },
+    { path: '/my-account', element: isEnabled? <MyAccount />: <SignIn/> },
+    { path: '/sign-up', element:  < SignUp />},
+    { path: '/my-order', element: isEnabled? <MyOrder />: <SignIn/> },
+    { path: '/my-orders', element: isEnabled?  <MyOrders />: <SignIn/> },
+    { path: '/my-orders/last', element: isEnabled? <MyOrder />: <SignIn/> },
+    { path: '/my-orders/:id', element:  isEnabled? <MyOrder />: <SignIn/> },
     { path: '/sign-in', element: <SignIn /> },
     { path: '/*', element: <NotFound /> },
 
