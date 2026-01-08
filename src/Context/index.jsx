@@ -2,9 +2,30 @@ import { createContext, useState, useEffect } from 'react'
 
 export const ShoppingCartContext = createContext()
 
+export const UserContext = createContext()
+
+export const UserProvider = ({children}) => {
+    //UserAccount
+    const [user, setUser] = useState(null)
+    const [isLoggedIn, setIsLoggedin] = useState(false)
+    const [registeredUsers, setRegisteredUsers]= useState([])
+
+    return(
+        <UserContext.Provider value={{
+        user, setUser, isLoggedIn, setIsLoggedin, registeredUsers, setRegisteredUsers
+        }}>
+            {children}
+        </UserContext.Provider>
+    )
+}
+
+
 export const ShoppingCartProvider = ({children}) => {
     // Shopping Cart · Increment quantity
     const [count, setCount] = useState(0)
+
+
+
 
     // Product Detail · Open/Close
     const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)

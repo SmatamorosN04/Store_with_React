@@ -1,10 +1,11 @@
 import {NavLink} from "react-router-dom";
-import {ShoppingCartContext} from "../../Context/index.jsx";
+import {ShoppingCartContext, UserContext} from "../../Context/index.jsx";
 import {useContext} from "react";
 import { ShoppingCartIcon} from '@heroicons/react/24/solid'
 
 const NavBar = () => {
     const context = useContext(ShoppingCartContext);
+    const userContext = useContext(UserContext)
     const activeStyle= "underline underline-offset-5 font-bold";
 
 
@@ -59,38 +60,37 @@ const NavBar = () => {
                     </NavLink>
                 </li>
             </ul>
-            <ul className='flex items-center gap-3'>
-                <li className='text-black/60'>
-                    SmatamorosN12@gmail.com
-                </li>
-                <li>
-                    <NavLink to='/my-orders'
-                     className={({ isActive}) =>
-                     isActive ? activeStyle: undefined}>
-                        My Orders
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/my-account'
-                    className={({ isActive}) =>
-                    isActive ? activeStyle: undefined}>
-                        My Account
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/sign-in'
-             className={({ isActive}) =>
-                 isActive ? activeStyle: undefined}>
-                        Sign In
-                    </NavLink>
-                </li>
-                <li className='flex align-center gap-1.5'>
-                    <ShoppingCartIcon className=' h-5 w-5 text-black'>
-                        </ShoppingCartIcon>
-                    {context.count}
-                </li>
-
-            </ul>
+            {
+                userContext.isLoggedIn && userContext.user? (
+                    <ul className='flex items-center gap-3'>
+                        <li className='text-black/60'>
+                            {userContext.user.email}
+                        </li>
+                        <li>
+                            <NavLink to='/my-orders' className={({isActive}) => isActive ? activeStyle: undefined}>
+                                My Orders
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/my-account' className={({isActive}) => isActive ? activeStyle: undefined}>
+                                My Acount
+                            </NavLink>
+                        </li>
+                        <li className='flex items-center'>
+                            <ShoppingCartIcon className='h-6 w-6 text-black'></ShoppingCartIcon>
+                            <div>{context.cartProducts.length}</div>
+                        </li>
+                    </ul>
+                ) : (
+                    <ul className='flex items-center gap-3'>
+                        <li>
+                            <NavLink to='/sign-in' className={({isActive}) => isActive ? activeStyle : undefined}>
+                                Sign In
+                            </NavLink>
+                        </li>
+                    </ul>
+                )
+            }
 
         </nav>
     )

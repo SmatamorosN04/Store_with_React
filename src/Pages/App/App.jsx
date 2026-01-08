@@ -4,11 +4,12 @@ import MyOrder from "../MyOrder/index.jsx";
 import MyOrders from "../MyOrders/index.jsx";
 import NotFound from "../NotFound/index.jsx";
 import SignIn from "../SignIn/index.jsx";
+import SignUp from "../SignUp/index.jsx";
 import NavBar from "../../components/navbar/index.jsx";
 import CheckoutSideMenu from '../../components/CheckoutSideMenu/index.jsx'
 import './App.css'
 import {BrowserRouter, useRoutes} from 'react-router-dom';
-import {ShoppingCartProvider} from "../../Context/index.jsx";
+import {ShoppingCartProvider, UserProvider} from "../../Context/index.jsx";
 
 const AppRoutes = () => {
   return useRoutes([
@@ -17,8 +18,9 @@ const AppRoutes = () => {
     { path: '/electronics', element: <Home /> },
     { path: '/furnitures', element: <Home /> },
     { path: '/toys', element: <Home /> },
-    { path: '/othes', element: <Home /> },
+    { path: '/other', element: <Home /> },
     { path: '/my-account', element: <MyAccount /> },
+    { path: '/sign-up', element: < SignUp />},
     { path: '/my-order', element: <MyOrder /> },
     { path: '/my-orders', element: <MyOrders /> },
     { path: '/my-orders/last', element: <MyOrder /> },
@@ -34,9 +36,11 @@ const App = () => {
   return (
 <ShoppingCartProvider>
   <BrowserRouter>
-    <AppRoutes/>
-    <NavBar/>
-    <CheckoutSideMenu/>
+    <UserProvider>
+      <AppRoutes/>
+      <NavBar/>
+      <CheckoutSideMenu/>
+    </UserProvider>
   </BrowserRouter>
 </ShoppingCartProvider>
 
