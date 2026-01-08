@@ -1,4 +1,4 @@
-import Layout from "../../components/layout/index.jsx";
+import Layout from "../../Components/Layout/index.jsx";
 import { NavLink} from "react-router-dom";
 import {useContext} from "react";
 import {UserContext} from "../../Context/index.jsx";

@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Layout from '../../Components/Layout/index.jsx'
 import { ShoppingCartContext } from '../../Context/index.jsx'
-import OrderCards from "../../components/OrderCards/index.jsx";
+import OrderCards from "../../Components/OrderCards/index.jsx";
 
 function MyOrders() {
     const context = useContext(ShoppingCartContext)

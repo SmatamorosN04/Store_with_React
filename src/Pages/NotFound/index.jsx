@@ -1,4 +1,4 @@
-import Layout from "../../components/layout/index.jsx";
+import Layout from "../../Components/Layout/index.jsx";
 function NotFound(){
     return(
         <Layout>

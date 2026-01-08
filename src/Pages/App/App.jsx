@@ -5,8 +5,8 @@ import MyOrders from "../MyOrders/index.jsx";
 import NotFound from "../NotFound/index.jsx";
 import SignIn from "../SignIn/index.jsx";
 import SignUp from "../SignUp/index.jsx";
-import NavBar from "../../components/navbar/index.jsx";
-import CheckoutSideMenu from '../../components/CheckoutSideMenu/index.jsx'
+import NavBar from "../../Components/Navbar/index.jsx";
+import CheckoutSideMenu from '../../Components/CheckoutSideMenu/index.jsx'
 import './App.css'
 import {BrowserRouter, useRoutes} from 'react-router-dom';
 import {ShoppingCartProvider, UserContext, UserProvider} from "../../Context/index.jsx";
