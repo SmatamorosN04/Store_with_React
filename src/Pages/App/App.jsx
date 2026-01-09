@@ -51,8 +51,8 @@ const userContext = useContext(UserContext)
 <ShoppingCartProvider>
   <BrowserRouter>
     <UserProvider>
-      <AppRoutes/>
       <NavBar/>
+      <AppRoutes/>
       <CheckoutSideMenu/>
     </UserProvider>
   </BrowserRouter>

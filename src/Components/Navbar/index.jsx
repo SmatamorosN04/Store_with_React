@@ -10,8 +10,8 @@ const NavBar = () => {
 
 
     return (
-        <nav className="flex justify-between items-center fixed z-10 top-0 w-full py-6 px-9 text-sm font-light">
-            <ul className='flex items-center gap-3'>
+        <nav className="flex flex-row  text-sm font-light justify-between w-full items-start relative z-10 top-0   sm:items-center  pt-5 sm:px-5 ">
+            <ul className='flex flex-col sm:flex-row items-center gap-3'>
                 <li className="font-semibold text-3xl">
                     <NavLink to='/'>
                         Shopi
@@ -68,7 +68,7 @@ const NavBar = () => {
             </ul>
             {
                 userContext.isLoggedIn && userContext.user? (
-                    <ul className='flex items-center gap-3'>
+                    <ul className='flex flex-col sm:flex-row items-center gap-5'>
                         <li className='text-black/60'>
                             {userContext.user.email}
                         </li>
@@ -88,7 +88,7 @@ const NavBar = () => {
                         </li>
                     </ul>
                 ) : (
-                    <ul className='flex items-center gap-3'>
+                    <ul className='flex flex-col sm:flex-row items-center gap-3'>
                         <li>
                             <NavLink to='/sign-in' className={({isActive}) => isActive ? activeStyle : undefined}>
                                 Sign In

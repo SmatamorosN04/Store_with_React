@@ -26,7 +26,7 @@ const CheckoutSideMenu = () => {
 
     return(
         <aside
-            className={`${context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'} w-87.5 top-17 h-[calc(100vh-68px)] flex-col fixed right-0 border border-black rounded-lg bg-white`}>
+            className={`${context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'} h-full w-full flex-col fixed top-0 z-200 border border-black sm:rounded-lg bg-white sm:w-87.5 sm:top-17 sm:h-[calc(100vh-68px)] sm:flex-col sm:fixed sm:right-0  `}>
             <div className='flex justify-between items-center p-6'>
                 <h2 className='font-medium text-xl'>My order</h2>
                 <XCircleIcon  onClick={() => context.closeCheckoutSideMenu()} className="size-6 text-black hover:cursor-pointer" />
